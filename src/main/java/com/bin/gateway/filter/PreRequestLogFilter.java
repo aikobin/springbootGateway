@@ -34,21 +34,9 @@ public class PreRequestLogFilter extends ZuulFilter {
 		  
 		  if(ConstantConfig.LIMITER.tryAcquire()) {//控制qps
 			    
-			    //companyId该值为公司id,利用此值来确定公司私有服务
-			    String company= ctx.getRequest().getParameter("companyId");
-			    String serviceId=(String) ctx.get("serviceId");
 			    
-			    if(serviceId.equals("oa-company")&&company!=null){
-			    	if(ConstantConfig.ROUTES.get("company"+company)==null){
-			    		routes.checkCompany();
-			    	}
-			    	serviceId=ConstantConfig.ROUTES.get("company"+company);
-			    }
-			    
-			    ctx.set("serviceId",serviceId);//将服务路由跳转到服务
 			    ctx.addZuulRequestHeader("Accept", "application/json;charset=UTF-8");
 			    //   ctx.addZuulRequestHeader("x-forwarded-proto","http");
-				ctx.addOriginResponseHeader("X-Zuul-ServiceId", serviceId);   
 				//ctx.setSendZuulResponse(true);  
 		        //ctx.setResponseStatusCode(200);  
 		        //ctx.set("isSuccess", true);           			

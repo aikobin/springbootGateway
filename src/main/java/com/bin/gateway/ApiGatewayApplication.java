@@ -7,6 +7,7 @@ import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
+import com.bin.gateway.filter.LogFilter;
 import com.bin.gateway.filter.PreRequestLogFilter;
 /**
  * @author Thibaud Leprêtre
@@ -36,6 +37,12 @@ public class ApiGatewayApplication {
     public PreRequestLogFilter preRequestLogFilter() {
     	return new PreRequestLogFilter();
     }
+    
+    @Bean
+    public LogFilter logFilter(){
+    	return new LogFilter();
+    }
+    
     
   /*  @Bean
     UserInfoRestTemplateCustomizer userInfoRestTemplateCustomizer(SpringClientFactory springClientFactory) {
