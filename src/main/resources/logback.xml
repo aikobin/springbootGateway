@@ -22,9 +22,4 @@
         <appender-ref ref="logstash" />
         <appender-ref ref="STDOUT" />
     </root>
-	
-	<root level="error">
-        <appender-ref ref="logstash" />
-        <appender-ref ref="STDOUT" />
-    </root> 
 </configuration>

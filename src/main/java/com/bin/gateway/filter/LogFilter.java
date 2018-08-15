@@ -15,6 +15,7 @@ public class LogFilter extends ZuulFilter {
 	public Object run() {
 		RequestContext ctx = RequestContext.getCurrentContext();
 		HttpServletRequest request = ctx.getRequest();
+		System.out.println("sss");
 		log.info(String.format("请求信息 ： send %s request to %s", request.getMethod(), request.getRequestURL().toString()));
 		return null;
 	}

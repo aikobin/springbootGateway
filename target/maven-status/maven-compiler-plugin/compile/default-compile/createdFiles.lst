@@ -1,0 +1,6 @@
+com\bin\gateway\filter\PreRequestLogFilter.class
+com\bin\gateway\filter\LogFilter.class
+com\bin\gateway\task\ConstantConfig.class
+com\bin\gateway\task\RoutesTask.class
+com\bin\gateway\ApiGatewayApplication.class
+com\bin\gateway\task\ConstantConfig$1.class
