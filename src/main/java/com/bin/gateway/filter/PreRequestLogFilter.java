@@ -2,17 +2,13 @@ package com.bin.gateway.filter;
 
 
 
-import org.springframework.beans.factory.annotation.Autowired;
-
 import com.bin.gateway.task.ConstantConfig;
-import com.bin.gateway.task.RoutesTask;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 
  
 public class PreRequestLogFilter extends ZuulFilter {
-	@Autowired
-	private RoutesTask routes;
+
 		
 	  @Override
 	  public String filterType() {
