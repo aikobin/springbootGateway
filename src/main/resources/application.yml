@@ -19,7 +19,7 @@ server:
 
 eureka:
   instance:
-      hostname: localhost
+      hostname: 192.168.32.140
       port: 8761
   client:
     serviceUrl:
@@ -37,6 +37,11 @@ zuul:
 security:
   basic:
     enabled: false
+management:
+  security:
+    enabled: false # spring-boot 1.5.2之后严格执行安全策略，所以需要配置这个为false ,否则很多点监控不到
+    
+    
 #logging:
   #level.org.springframework.security: DEBUG
   #file: logs/${spring.application.name}.log
