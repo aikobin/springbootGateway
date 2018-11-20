@@ -1,0 +1,7 @@
+spring:
+  cloud:
+    config:
+      uri: http://192.168.32.140:8191
+      name: springbootGateway
+      profile: test
+     # label: master # 对应 {label} 部分，即 Git 的分支。如果配置中心使用的是本地存储，则该参数无用

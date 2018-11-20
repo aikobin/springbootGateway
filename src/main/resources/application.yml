@@ -1,50 +1,12 @@
 info:
   version: @project.version@
 spring:
-  aop:
-    proxyTargetClass: true
   application:
     name: springboot-gateway
-# Define the port where the API gateway server would be running
 server:
   port: 8765
-  #ssl:
-     #key-store: classpath:keystore.jks
-     #key-store-password: 123456
-     #keyStoreType: JKS
-     #key-alias: certificatekey
-
-eureka:
-  instance:
-      hostname: 192.168.32.140
-      port: 8761
-  client:
-    serviceUrl:
-      defaultZone: http://192.168.32.140:8761/eureka/    # 指定注册中心的地址
-
-zuul:
-  routes:
-    springboot-demo: /demo/**
-    springboot-auth: /auth/**
-      #sensitiveHeaders:
-      #path: /uaa/**
-      #stripPrefix: false
-  add-proxy-headers: true
-
-security:
-  basic:
-    enabled: false
-management:
-  security:
-    enabled: false # spring-boot 1.5.2之后严格执行安全策略，所以需要配置这个为false ,否则很多点监控不到
-    
-    
-#logging:
-  #level.org.springframework.security: DEBUG
-  #file: logs/${spring.application.name}.log
-  
-hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds : 60000
-ribbon.ConnectTimeout: 20000
-ribbon.ReadTimeout: 35000
-
-
+    #ssl:
+    #key-store: classpath:keystore.jks
+    #key-store-password: 123456
+    #keyStoreType: JKS
+  #key-alias: certificatekey

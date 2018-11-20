@@ -1,5 +1,7 @@
 package com.bin.gateway;
 
+import com.bin.gateway.filter.AccessFilter;
+import com.bin.gateway.filter.ErrorFilter;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -9,16 +11,15 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 import com.bin.gateway.filter.LogFilter;
 import com.bin.gateway.filter.PreRequestLogFilter;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
+
 /**
  * @author Thibaud Leprêtre
  */
 @SpringBootApplication
 @EnableZuulProxy
-//开启单点登录的注解
-//@EnableOAuth2Sso
-
 @EnableDiscoveryClient
-@EnableScheduling
 public class ApiGatewayApplication {
 
     public static void main(String[] args) {
@@ -33,15 +34,21 @@ public class ApiGatewayApplication {
     }
 
     
-    @Bean
+/*    @Bean
     public PreRequestLogFilter preRequestLogFilter() {
     	return new PreRequestLogFilter();
-    }
-    
+    }*/
     @Bean
     public LogFilter logFilter(){
     	return new LogFilter();
     }
+
+    @Bean
+    public ErrorFilter errorFilter(){return new ErrorFilter();}
+   /* @Bean
+    public AccessFilter accessFilter(){
+        return new AccessFilter();
+    }*/
     
     
   /*  @Bean
